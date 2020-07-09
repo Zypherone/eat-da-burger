@@ -1,10 +1,27 @@
 <h1>Eat-da-burger!</h1>
-<h1>Eat-da-burger!</h1>
+<div>
+  <h2>Burgers to devour.</h2>
+  <ul class="toeat">
+    {{#each burgers}}
+      {{#unless devoured}}
+        {{> burger/burger-block devoured=false}}
+      {{/unless}}
+    {{/each}}
+  </ul>
+</div>
+<div>
+  <h2>Burgers that has been devoured.</h2>
+  <ul class="devoured">
+    {{#each burgers}}
+      {{#if devoured}}
+        {{> burger/burger-block devoured=true}}
+      {{/if}}
+    {{/each}}
+  </ul>
+</div>
 
-<ul>
-  {{#each burgers}}
-    <li>
-      {{name}}
-    </li>
-  {{/each}}
-</ul>
+<p>Enter the name of the burger your want to eat!</p>
+<form>
+  <textarea></textarea>
+  <button>Add burger</button>
+</form>
